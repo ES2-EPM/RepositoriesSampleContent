@@ -13,7 +13,7 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Detections/**'
+    - '**'
     - '!.github/workflows/**'  # this filter prevents other workflow changes from triggering this workflow
     - '.github/workflows/sentinel-deploy-0df5224f-032e-450c-a717-05731907e5c0.yml'
 
@@ -24,15 +24,15 @@ jobs:
       resourceGroupName: 'rg-soc-sentinel'
       workspaceName: 'la-sentinel-workspace'
       workspaceId: '78761e55-5fbb-4e82-9863-d609569ae2c9'
-      directory: '${{ github.workspace }}/Detections'
+      directory: '${{ github.workspace }}'
       cloudEnv: 'AzureCloud'
       creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_0df5224f032e450ca71705731907e5c0 }}
-      contentTypes: 'Workbook,HuntingQuery,AnalyticsRule'
+      contentTypes: 'AnalyticsRule'
       branch: 'main'
       sourceControlId: '0df5224f-032e-450c-a717-05731907e5c0'
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
-      smartDeployment: 'false'
+      smartDeployment: 'true'
 
     steps:
     - name: Login to Azure (Attempt 1)
