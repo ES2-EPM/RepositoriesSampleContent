@@ -30,7 +30,7 @@ jobs:
       contentTypes: 'AnalyticsRule,Workbook'
       branch: 'main'
       sourceControlId: '0df5224f-032e-450c-a717-05731907e5c0'
-      rootDirectory: '${{ github.workspace }}'
+      rootDirectory: '${{ github.workspace }}/Detections'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'false'
 
